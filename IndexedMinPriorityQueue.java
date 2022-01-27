@@ -35,7 +35,7 @@ class IndexedPriorityQueue<T extends Comparable<T>>{
 			int l = left(pos);
 			int r = right(pos);
 			
-            int min_index = l;
+            		int min_index = l;
 			if(l < size-1 && nodes.get(l).val.compareTo(nodes.get(r).val) > 0) { 
 				min_index = r;
 			} 
@@ -54,7 +54,7 @@ class IndexedPriorityQueue<T extends Comparable<T>>{
 	
 	private int swim(int pos){
 		while(parent(pos) != pos && nodes.get(parent(pos)).val.compareTo(nodes.get(pos).val) > 0){
-            exchange(pos, parent(pos));
+            		exchange(pos, parent(pos));
 			pos = parent(pos);
 		}
 		return pos;
@@ -96,7 +96,7 @@ class IndexedPriorityQueue<T extends Comparable<T>>{
 	
 	public void pop(){
 		key_to_position.remove(nodes.get(0).key);
-        exchange(0, size-1);
+        	exchange(0, size-1);
 		size--;
 		sink(0);
 		nodes.remove(nodes.size()-1);
@@ -116,7 +116,7 @@ class IndexedPriorityQueue<T extends Comparable<T>>{
 		nodes.get(key_to_position.get(id)).val = new_val;
 		swim(key_to_position.get(id));
 	}
-    public void print(){
+    	public void print(){
 		for(Entry node: nodes){
 		    System.out.println(node.key + " " + node.val);
 		}
