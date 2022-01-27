@@ -13,30 +13,30 @@ public class TopologicalSortDFS{
 		order = new ArrayDeque<>();
 	}
 	
-    private void reversePostOrder(int v, boolean[] visited){
-        
-    	visited[v] = true;
-    	for(int neighbor : digraph.getNeighbors(v)){
-            if(!visited[neighbor]){
-            	reversePostOrder(neighbor, visited);
-            }
-        }
-        order.addLast(v);
-        
-    }
+	private void reversePostOrder(int v, boolean[] visited){
+
+		visited[v] = true;
+		for(int neighbor : digraph.getNeighbors(v)){
+		    if(!visited[neighbor]){
+			reversePostOrder(neighbor, visited);
+		    }
+		}
+		order.addLast(v);
+
+	}
     
-    public Deque<Integer> topologicalOrder(){
-        
-    	int vertices = digraph.getNoVertices();
-        boolean[] visited = new boolean[vertices];
-        
-        for(int i = 0;i<vertices;i++){
-            if(!visited[i]){
-                this.reversePostOrder(i, visited);
-            }
-        }
-        return order;
-    }
+	public Deque<Integer> topologicalOrder(){
+
+		int vertices = digraph.getNoVertices();
+		boolean[] visited = new boolean[vertices];
+
+		for(int i = 0;i<vertices;i++){
+		    if(!visited[i]){
+			this.reversePostOrder(i, visited);
+		    }
+		}
+		return order;
+	}
     
 	public static void main(String[] args) {
 		int vertices = 6;
