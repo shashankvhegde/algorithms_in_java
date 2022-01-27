@@ -14,7 +14,7 @@ import java.util.Random;
 
 class MergeSortTest {
 
-	private MergeSort quickSort;
+	private MergeSort mergeSort;
 
 	private int[] nums;
 	
@@ -59,7 +59,7 @@ class MergeSortTest {
 	
 	private MergeSortTest when_sort_applied() {
 		if(nums!=null && nums.length > 0) {
-			quickSort.sort(nums);
+			mergeSort.sort(nums);
 		}
 		return this;
 	}
@@ -79,7 +79,7 @@ class MergeSortTest {
 	
 	@BeforeEach
 	void setUp() throws Exception {
-		quickSort = new MergeSort();
+		mergeSort = new MergeSort();
 		randomNumberGenerator = new Random();
 	}
 
