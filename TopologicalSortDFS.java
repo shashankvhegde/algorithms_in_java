@@ -13,12 +13,12 @@ public class TopologicalSortDFS{
 		order = new ArrayDeque<>();
 	}
 	
-	private void reversePostOrder(int v, boolean[] visited){
+	private void postOrder(int v, boolean[] visited){
 
 		visited[v] = true;
 		for(int neighbor : digraph.getNeighbors(v)){
 		    if(!visited[neighbor]){
-			reversePostOrder(neighbor, visited);
+			postOrder(neighbor, visited);
 		    }
 		}
 		order.addLast(v);
@@ -32,7 +32,7 @@ public class TopologicalSortDFS{
 
 		for(int i = 0;i<vertices;i++){
 		    if(!visited[i]){
-			this.reversePostOrder(i, visited);
+			this.postOrder(i, visited);
 		    }
 		}
 		return order;
